@@ -12,19 +12,21 @@ async function ApiCall (){
     const promise = await fetch('../assets/students.json');
     const data = await promise.json();
 
-    studentList = data;
+    studentList = data.studentList;
 }
 
 function findStudent (){
     let input = userInput.value.toLowerCase();
     console.log("ear");
 
+    console.log(studentList[0].firstName.toLowerCase())
+
     for(let i = 0; i < studentList.length; i++){
         let student = studentList[i];
         if(input === student.firstName.toLowerCase()){
             studentName.textContent = student.firstName;
         }else{
-            injectDiv.innerHTML = "";
+            console.log("didn't work");
         }
 
     }
